@@ -1,11 +1,10 @@
-# winforms-not-paid
-This class library adds a extension method to a ``Windows.Forms.Form`` which lowers the ``Form.Opacity`` based on how close 
-``DateTime.Today`` is from a given ``DateTime`` due date.
+## Client did not pay?
+Lower a Form's Opacity as the due date aproaches until it disappears completely!
 
-If ``DateTime.Today`` is past due date, the ``Form.Opacity`` is set to 0 and the ``Form.Controls`` is cleared.
+This class library adds a extension method to a ``Windows.Forms.Form`` which lowers the ``Form.Opacity`` based on how close ``DateTime.Today`` is from a given ``DateTime`` due date. If ``DateTime.Today`` is past due date, the ``Form.Opacity`` is set to 0 and the ``Form.Controls`` is cleared.
 
 ## Usage
-1. Add the class library to your project References.
+1. Add the [``WinformsNotPaid.dll``](https://github.com/g-otn/winforms-not-paid/releases) to your project References.
 2. Import the class library in your Form ``.cs``
 ```csharp
 using WinformsNotPaid;
