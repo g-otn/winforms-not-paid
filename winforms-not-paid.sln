@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformsNotPaid", "WinformsNotPaid\WinformsNotPaid.csproj", "{F1017B09-2AA7-483F-8C54-D5D9B07E7FA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformsNotPaidTest", "WinformsNotPaidTest\WinformsNotPaidTest.csproj", "{51FBDBA9-215E-4C39-8088-1E902D25D55B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F1017B09-2AA7-483F-8C54-D5D9B07E7FA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1017B09-2AA7-483F-8C54-D5D9B07E7FA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1017B09-2AA7-483F-8C54-D5D9B07E7FA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51FBDBA9-215E-4C39-8088-1E902D25D55B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51FBDBA9-215E-4C39-8088-1E902D25D55B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51FBDBA9-215E-4C39-8088-1E902D25D55B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51FBDBA9-215E-4C39-8088-1E902D25D55B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
