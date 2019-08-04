@@ -5,7 +5,7 @@ This class library adds a extension method to a ``Windows.Forms.Form`` which low
 If ``DateTime.Today`` is past due date, the ``Form.Opacity`` is set to 0 and the ``Form.Controls`` is cleared.
 
 ## Usage
-1. Add the class lbrary to your project References.
+1. Add the class library to your project References.
 2. Import the class library in your Form ``.cs``
 ```csharp
 using WinformsNotPaid;
