@@ -36,7 +36,7 @@ namespace WinformsNotPaidTest
             MessageBox.Show(
                  $"Today's date: {DateTime.Today.ToShortDateString()}"
                + $"\nDue date: {dueDate.ToShortDateString()} ({dueDate.Subtract(DateTime.Today).Days} days left)"
-               + $"\nDeadline date: {dueDate.Subtract(new TimeSpan(daysDeadline, 0, 0, 0)).ToShortDateString()} ( {dueDate.Subtract(DateTime.Today).Days - daysDeadline} days left)"
+               + $"\nDeadline date: {dueDate.Subtract(new TimeSpan(daysDeadline, 0, 0, 0)).ToShortDateString()} ({dueDate.Subtract(DateTime.Today).Days - daysDeadline} days left)"
                + $"\nCurrent opacity: {form.Opacity * 100}% ({dueDate.Subtract(DateTime.Today).Days}/{daysDeadline})"
                , testName);
         }
@@ -74,6 +74,24 @@ namespace WinformsNotPaidTest
             visualizeFormAndValues("TestInsideDeadline", form, dueDate, daysDeadline);
 
             Assert.IsTrue(form.Opacity < 1);         // Inside deadline
+            Assert.IsTrue(form.Controls.Count == 1); // Label not removed
+        }
+
+        [TestMethod]
+        public void TestDueDate()
+        {
+            DateTime dueDate = DateTime.Today; // 0 days until dueDate
+            int daysDeadline = 20;
+
+            Form form = createTestForm();
+
+            Assert.IsTrue(form.Controls.Count == 1); // Has label
+
+            form.ChangeNotPaidOpacity(dueDate, daysDeadline);
+
+            visualizeFormAndValues("TestDueDate", form, dueDate, daysDeadline);
+
+            Assert.IsTrue(form.Opacity != 0);        // Inside deadline
             Assert.IsTrue(form.Controls.Count == 1); // Label not removed
         }
 
