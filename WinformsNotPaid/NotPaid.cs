@@ -24,7 +24,7 @@ namespace WinformsNotPaid
             }
             else if (dueDate.Subtract(DateTime.Today).Days < daysDeadline) // Inside deadline
             {
-                form.Opacity = ((double)dueDate.Subtract(DateTime.Today).Days / daysDeadline);
+                form.Opacity = Math.Max(0.01, ((double)dueDate.Subtract(DateTime.Today).Days / daysDeadline));
             }
         }
     }
