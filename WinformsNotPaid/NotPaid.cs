@@ -20,10 +20,7 @@ namespace WinformsNotPaid
                 form.Opacity = 0;
 
                 // Removes all controls so it's not possible to use them even while invisible
-                foreach (Control control in form.Controls)
-                {
-                    form.Controls.Remove(control);
-                }
+                form.Controls.Clear();
             }
             else if (dueDate.Subtract(DateTime.Today).Days < daysDeadline) // Inside deadline
             {
