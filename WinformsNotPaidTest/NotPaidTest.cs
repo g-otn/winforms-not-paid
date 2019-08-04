@@ -76,5 +76,23 @@ namespace WinformsNotPaidTest
             Assert.IsTrue(form.Opacity < 1);         // Inside deadline
             Assert.IsTrue(form.Controls.Count == 1); // Label not removed
         }
+
+        [TestMethod]
+        public void TestOutsideDeadline()
+        {
+            DateTime dueDate = DateTime.Today.Add(new TimeSpan(23, 0, 0, 0)); // 23 days until dueDate
+            int daysDeadline = 10;
+
+            Form form = createTestForm();
+
+            Assert.IsTrue(form.Controls.Count == 1); // Has label
+
+            form.ChangeNotPaidOpacity(dueDate, daysDeadline);
+
+            visualizeFormAndValues(form, dueDate, daysDeadline);
+
+            Assert.IsTrue(form.Opacity == 1);        // Inside deadline
+            Assert.IsTrue(form.Controls.Count == 1); // Label not removed
+        }
     }
 }
