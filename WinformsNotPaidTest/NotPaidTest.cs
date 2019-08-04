@@ -30,7 +30,7 @@ namespace WinformsNotPaidTest
         /// <summary>
         /// Shows the Form and pauses code flow for opacity and data visualization
         /// </summary>
-        private void visualizeFormAndValues(Form form, DateTime dueDate, int daysDeadline)
+        private void visualizeFormAndValues(string testName, Form form, DateTime dueDate, int daysDeadline)
         {
             form.Show();
             MessageBox.Show(
@@ -38,7 +38,7 @@ namespace WinformsNotPaidTest
                + $"\nDue date: {dueDate.ToShortDateString()} ({dueDate.Subtract(DateTime.Today).Days} days left)"
                + $"\nDeadline date: {dueDate.Subtract(new TimeSpan(daysDeadline, 0, 0, 0)).ToShortDateString()} ( {dueDate.Subtract(DateTime.Today).Days - daysDeadline} days left)"
                + $"\nCurrent opacity: {form.Opacity * 100}% ({dueDate.Subtract(DateTime.Today).Days}/{daysDeadline})"
-               , "Test data");
+               , testName);
         }
 
         [TestMethod]
@@ -53,7 +53,7 @@ namespace WinformsNotPaidTest
 
             form.ChangeNotPaidOpacity(dueDate, daysDeadline);
 
-            visualizeFormAndValues(form, dueDate, daysDeadline);
+            visualizeFormAndValues("TestPastDueDate", form, dueDate, daysDeadline);
 
             Assert.IsTrue(form.Opacity == 0);        // Past due date
             Assert.IsTrue(form.Controls.Count == 0); // Label removed
@@ -71,7 +71,7 @@ namespace WinformsNotPaidTest
 
             form.ChangeNotPaidOpacity(dueDate, daysDeadline);
 
-            visualizeFormAndValues(form, dueDate, daysDeadline);
+            visualizeFormAndValues("TestInsideDeadline", form, dueDate, daysDeadline);
 
             Assert.IsTrue(form.Opacity < 1);         // Inside deadline
             Assert.IsTrue(form.Controls.Count == 1); // Label not removed
@@ -89,9 +89,9 @@ namespace WinformsNotPaidTest
 
             form.ChangeNotPaidOpacity(dueDate, daysDeadline);
 
-            visualizeFormAndValues(form, dueDate, daysDeadline);
+            visualizeFormAndValues("TestOutsideDeadline", form, dueDate, daysDeadline);
 
-            Assert.IsTrue(form.Opacity == 1);        // Inside deadline
+            Assert.IsTrue(form.Opacity == 1);        // Outside deadline
             Assert.IsTrue(form.Controls.Count == 1); // Label not removed
         }
     }
